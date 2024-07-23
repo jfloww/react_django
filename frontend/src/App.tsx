@@ -1,15 +1,15 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import api from "./api/api";
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
+import api from './api/api';
 
 function App() {
   const [count, setCount] = useState(0);
   const backendConnect = () => {
-    const params = { connect: "success" };
+    const params = { connect: 'success' };
     api
-      .get("hello/", { params })
+      .get('hello/', { params })
       .then((res) => {
         console.log(res.data.message);
       })
