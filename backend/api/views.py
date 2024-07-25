@@ -22,7 +22,7 @@ def get_random_name(names_usage, max_usage_per_name):
 
 @api_view(['GET'])
 def getSampleData(request):
-    data_count = 150
+    data_count = 250
     max_usage_per_name = 4
     required_names = (data_count // max_usage_per_name) + 1
     names_pool = [f'company{i}' for i in range(1, required_names + 1)]  # Ensure enough names
@@ -31,7 +31,7 @@ def getSampleData(request):
     roles = ['Software Engineer', 'Dev Ops', 'Full Stack Developer', 'Backend Engineer', 'Frontend Engineer']
     start_date = datetime(2024, 1, 1)
     end_date = datetime(2024, 7, 23)
-    location_info = ['New York, New York', 'Jersey City, New Jersey', 'Philadelphia, Pennsylvania', 'Washington D.C., Washington D.C.', 'Los Angeles, California', 'Austin, Texas', 'San Jose, California']
+    location_info = ['New York, New York', 'Jersey City, New Jersey', 'Philadelphia, Pennsylvania', 'Washington D.C.', 'Los Angeles, California', 'Austin, Texas', 'San Jose, California']
     sample_data = []
 
     for _ in range(data_count):
@@ -46,3 +46,6 @@ def getSampleData(request):
             'location': location
         })
     return Response(sample_data)
+
+# @api_view(['GET'])
+# def getData(request):

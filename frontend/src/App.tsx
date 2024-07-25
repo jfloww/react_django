@@ -125,20 +125,26 @@ function App() {
             onGridReady={onGridReady}
           />
         </div>
-        <div>
-          <div>
-            <h2>Company Info: {targetCompany}</h2>
-            <div>Summary:</div>
-          </div>
-          <div>
-            {targetList.map((item, index) => (
-              <div className="flex space-x-4" key={index}>
-                <div>{item.role}</div>
-                <div>{item.applied}</div>
-                <div>{item.location}</div>
+        <div className="w-1/2 p-4 bg-gray-800 text-white">
+          {targetCompany && (
+            <>
+              <div className="border-b-2 border-white pb-2 mb-4">
+                <div className="font-bold text-2xl">
+                  Company Info: {targetCompany}
+                </div>
+                <div>Summary: HQ, Employees, etc.. </div>
               </div>
-            ))}
-          </div>
+              <div className="mt-4">
+                {targetList.map((item, index) => (
+                  <div className="flex space-x-4 py-2" key={index}>
+                    <div className="text-center flex-1">{item.role}</div>
+                    <div className="text-center flex-1">{item.applied}</div>
+                    <div className="text-center flex-1">{item.location}</div>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </div>
       <div className="card">
