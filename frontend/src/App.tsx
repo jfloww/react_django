@@ -75,7 +75,7 @@ function App() {
     }
   }, [appliedList]);
 
-  const columnDefs = useMemo(
+  const columnDefs: any = useMemo(
     () => [
       {
         headerName: 'Company',
@@ -106,7 +106,7 @@ function App() {
     }
   };
 
-  const onGridReady = (params: { api: GridApi }) => {
+  const onGridReady: any = (params: { api: GridApi }) => {
     gridApiRef.current = params.api;
   };
 
