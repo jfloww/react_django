@@ -22,6 +22,8 @@ interface GroupedData {
 function App() {
   const [appliedList, setAppliedList] = useState<AppliedData[]>([]);
   const [groupedData, setGroupedData] = useState<GroupedData[]>([]);
+  const [totalCompany, setTotalCompany] = useState<number>(0);
+  const [totalApplied, setTotalApplied] = useState<number>(0);
   const [targetCompany, setTargetCompany] = useState<string | null>(null);
   const [targetList, setTargetList] = useState<AppliedData[]>([]);
   const gridApiRef = useRef<GridApi | null>(null);
@@ -40,6 +42,7 @@ function App() {
 
   const getData = () => {
     api.get('getData/').then((res) => {
+      setTotalApplied(res.data.length);
       setAppliedList(res.data);
     });
   };
@@ -67,7 +70,7 @@ function App() {
         },
         {} as { [key: string]: GroupedData }
       );
-
+      setTotalCompany(Object.keys(grouped).length);
       setGroupedData(Object.values(grouped));
     }
   }, [appliedList]);
@@ -109,6 +112,9 @@ function App() {
 
   return (
     <>
+      <div className="font-bold text-3xl mb-4">
+        You Applied {totalApplied} times to {totalCompany} companies
+      </div>
       <div className="flex">
         <div
           className="ag-theme-alpine-dark"
