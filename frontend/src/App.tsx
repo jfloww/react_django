@@ -20,7 +20,6 @@ interface GroupedData {
 }
 
 function App() {
-  const [count, setCount] = useState(0);
   const [appliedList, setAppliedList] = useState<AppliedData[]>([]);
   const [groupedData, setGroupedData] = useState<GroupedData[]>([]);
   const [targetCompany, setTargetCompany] = useState<string | null>(null);
@@ -86,7 +85,6 @@ function App() {
         field: 'mostRecentDate',
         flex: 2,
       },
-      { headerName: 'Website', field: '', flex: 2 },
     ],
     []
   );
@@ -148,9 +146,6 @@ function App() {
         </div>
       </div>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
         <button onClick={() => backendConnect()}>Connect</button>
         <button onClick={() => getData()}>Get Data</button>
       </div>
